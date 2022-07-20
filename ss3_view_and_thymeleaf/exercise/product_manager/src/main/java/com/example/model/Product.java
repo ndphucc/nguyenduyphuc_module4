@@ -1,7 +1,11 @@
 package com.example.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Product implements Comparable{
+@Entity
+public class Product {
+    @Id
     private int id;
     private String name;
     private double price;
@@ -73,12 +77,4 @@ public class Product implements Comparable{
         return false;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        if ((o instanceof Product) && (this.id > ( ((Product) o).id ))){
-            return 1;
-        }else {
-            return -1;
-        }
-    }
 }

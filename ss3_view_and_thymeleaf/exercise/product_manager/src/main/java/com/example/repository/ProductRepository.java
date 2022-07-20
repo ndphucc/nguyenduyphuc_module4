@@ -17,5 +17,4 @@ public interface ProductRepository {
 
     List<Product> findByName(String name);
 
-    int getId();
 }

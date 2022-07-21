@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class BlogController {
@@ -43,6 +45,12 @@ public class BlogController {
     public String edit(@ModelAttribute Blog blog) {
         blogService.update(blog);
         return "redirect:/home";
+    }
+    @GetMapping("/view/{id}")
+    public RedirectView view(@PathVariable int id, RedirectAttributes redirectAttributes){
+        redirectAttributes.addAttribute("blogView",blogService.findById(id));
+        return new RedirectView("/home");
+
     }
 
 }

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a48f098e-43a7-4bd6-aed1-e3927cffdf3d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/repository/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/repository/impl/ProductRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/repository/impl/ProductRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/service/impl/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/classes/java/main/com/example/service/impl/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/libs/product_manager-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/libs/product_manager-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/repository/impl/ProductRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/repository/impl/ProductRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/java/com/example/service/impl/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_view_and_thymeleaf/exercise/product_manager/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/BlogApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/controller/BlogController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/model/Blog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/repository/BlogRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/service/BlogService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/service/impl/BlogServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/test/java/com/example/BlogApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_manager/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_manager/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/FuramaManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/FuramaManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/AttachFacility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/AttachFacility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Division.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/EducationDegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/EducationDegree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/FacilityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/FacilityType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/RentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/RentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/java/com/example/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/java/com/example/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../furama_manager/src/test/java/com/example/FuramaManagerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama_manager/src/test/java/com/example/FuramaManagerApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CHoZRDYSiaDwjDxAf6axHTKuYa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="FormApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="form.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.FormApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a48f098e-43a7-4bd6-aed1-e3927cffdf3d" name="Changes" comment="" />
+      <created>1658468927215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658468927215</updated>
+      <workItem from="1658468928543" duration="71000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

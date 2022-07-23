@@ -40,8 +40,4 @@ public class ProductService implements com.example.service.ProductService {
         return productRepository.findByName(name);
     }
 
-    @Override
-    public int getId() {
-        return productRepository.getId();
-    }
 }

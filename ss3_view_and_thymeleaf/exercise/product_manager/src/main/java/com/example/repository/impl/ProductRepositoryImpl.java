@@ -27,7 +27,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Product findById(int id) {
+    public Product find(int id) {
         Session session = null;
         Product product = null;
         try {
@@ -64,7 +64,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public void edit(int id, Product product) {
+    public void edit(Product product) {
         Transaction transaction = null;
         Session session = null;
 
@@ -86,11 +86,11 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Product product) {
         Transaction transaction = null;
         Session session = null;
 
-        Product listen = findById(id);
+        Product listen = find(product.getId());
 
         try {
             session = ConnectionUtil.sessionFactory.openSession();
@@ -110,7 +110,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public List<Product> search(String name) {
+    public List<Product> findByName(String name) {
         Session session = null;
         List<Product> listenList = null;
 

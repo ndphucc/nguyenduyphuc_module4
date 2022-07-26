@@ -9,8 +9,17 @@ public class EducationDegree {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
     @OneToMany(mappedBy = "educationDegree")
-    private Set<Employee> employeeSet;
+    private Set<Employee> employees;
     public EducationDegree() {
     }
 

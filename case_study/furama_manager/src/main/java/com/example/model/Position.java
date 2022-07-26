@@ -11,6 +11,15 @@ public class Position {
     private String name;
     @OneToMany(mappedBy = "position")
     private Set<Employee> employees;
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
     public Position() {
     }
 

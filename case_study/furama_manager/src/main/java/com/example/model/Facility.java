@@ -1,9 +1,9 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import net.bytebuddy.implementation.bind.annotation.Default;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Facility {
@@ -19,7 +19,40 @@ public class Facility {
     private double poolArea;
     private int numberOfFloors;
     private String facilityFree;
+    private boolean deleteStatus;
+    @ManyToOne
+    @JoinColumn(name = "rent_type_id",referencedColumnName = "id")
+    private RentType rentType;
+    @ManyToOne
+    @JoinColumn(name = "facility_type_id",referencedColumnName = "id")
+    private FacilityType facilityType;
 
+    public RentType getRentType() {
+        return rentType;
+    }
+
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
+    }
+
+    public FacilityType getFacilityType() {
+        return facilityType;
+    }
+
+    public void setFacilityType(FacilityType facilityType) {
+        this.facilityType = facilityType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
+    }
+
+    @OneToMany(mappedBy = "facility")
+    private Set<Contract> contracts;
     public Facility() {
     }
 

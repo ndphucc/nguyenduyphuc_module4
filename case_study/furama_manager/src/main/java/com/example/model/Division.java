@@ -3,6 +3,7 @@ package com.example.model;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 public class Division {
     @Id
@@ -33,5 +34,13 @@ public class Division {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

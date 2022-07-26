@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
+
+</head>
+<body>
+<div>
+    <table class="table">
+        <tr>
+            <!--            <th>STT</th>-->
+            <th>Name</th>
+            <th>Facility type</th>
+            <th>Cost</th>
+            <th>Area</th>
+            <th>Max people</th>
+            <th>Rent type</th>
+            <th>Standard room</th>
+            <th>Description other convenience</th>
+            <th>Pool area</th>
+            <th>Number of Floors</th>
+            <th>Facility free</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="row:${list}">
+            <!--            <td th:text="${foo.tasks[index]}"></td>-->
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.facilityType.name}"></td>
+            <td th:text="${row.cost}"></td>
+            <td th:text="${row.area}"></td>
+            <td th:text="${row.maxPeople}"></td>
+            <td th:text="${row.rentType.name}"></td>
+            <td th:text="${row.standardRoom}"></td>
+            <td th:text="${row.descriptionOtherConvenience}"></td>
+            <td th:text="${row.poolArea}"></td>
+            <td th:text="${row.numberOfFloors}"></td>
+            <td th:text="${row.facilityFree}"></td>
+            <td><a th:href="@{/facility/edit/__${row.id}__}">
+                <button class="btn btn-success">Edit</button>
+            </a></td>
+            <td>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="showModalDelete(this.value)" th:value="${row.id+','+row.name}">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/facility/create">
+                    <button class="btn btn-primary">Create</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/facility/delete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="idDelete" name="id">
+                    <div class="row">
+                        <div class="col-6">Name</div>
+                        <div class="col-6" id="nameDelete"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+<script>
+    function showModalDelete(str){
+        document.getElementById("idDelete").value=str.split(",")[0];
+        document.getElementById("nameDelete").innerText=str.split(",")[1];
+    }
+</script>
+</body>
+</html>

@@ -1,9 +1,7 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class FacilityType {
@@ -12,6 +10,16 @@ public class FacilityType {
     private int id;
     private String name;
 
+    public Set<Facility> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(Set<Facility> facilities) {
+        this.facilities = facilities;
+    }
+
+    @OneToMany(mappedBy = "facilityType")
+    private Set<Facility> facilities;
     public FacilityType() {
     }
 

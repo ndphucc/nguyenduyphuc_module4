@@ -1,24 +1,53 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
+import java.util.Set;
+
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private int gender;
     private String idCard;
     private String phoneNumber;
     private String email;
     private String address;
+    private boolean deleteStatus;
 
-    public Customer(int id, String name, Date dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
+    public boolean isDeleteStatus() {
+        return deleteStatus;
+    }
+
+    public void setDeleteStatus(boolean deleteStatus) {
+        this.deleteStatus = deleteStatus;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "customer_type_id",referencedColumnName = "id")
+    private CustomerType customerType;
+    @OneToMany(mappedBy = "customer")
+    private Set<Contract> contracts;
+
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
+    }
+
+    public Customer(int id, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -48,11 +77,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

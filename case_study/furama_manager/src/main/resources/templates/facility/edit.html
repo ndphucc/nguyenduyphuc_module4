@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <style>
+        .row{
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <form action="/facility/edit" method="post" th:object="${facility}">
+            <div>
+                <div class="row">
+                    <div class="col-6">Facility type</div>
+                </div>
+                <div class="row">
+                    <input type="hidden" th:field="*{id}">
+                    <div class="col-12">
+                        <select class="form-select" name="" id="facilityType"
+                                 th:field="*{facilityType}" onchange="onchangeFacility(this.value)" >
+                            <option  th:each="row:${facilityTypeList}" th:text="${row.name}"
+                                    th:value="${row.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Name</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input class="form-control" type="text" th:field="*{name}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Cost</div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><input type="text" class="form-control" th:field="*{cost}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Area</div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><input class="form-control" type="text" th:field="*{area}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Max people</div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><input class="form-control" type="text" th:field="*{maxPeople}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Rent type</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <select class="form-select" name="" id="" th:field="*{rentType}">
+                            <option th:each="row:${rentTypeList}" th:text="${row.name}" th:value="${row.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row room">
+                    <div class="col-6">Standard room</div>
+                </div>
+                <div class="row room">
+                    <div class="col-12"><input type="text" th:field="*{standardRoom}" class="room form-control"></div>
+                </div>
+                <div class="row room">
+                    <div class="col-6">Description other convenience</div>
+                </div>
+                <div class="row room">
+                    <div class="col-12"><input class="room form-control" type="text"
+                                               th:field="*{descriptionOtherConvenience}"></div>
+                </div>
+                <div class="row house room">
+                    <div class="col-6">Pool area</div>
+                </div>
+                <div class="row house room">
+                    <div class="col-12"><input type="text" th:field="*{poolArea}" class="room house form-control"></div>
+                </div>
+                <div class="row room">
+                    <div class="col-6">Number of Floors</div>
+                </div>
+                <div class="row room">
+                    <div class="col-12 room"><input type="text" th:field="*{numberOfFloors}" class="room form-control">
+                    </div>
+                </div>
+                <div class="row villa house">
+                    <div class="col-6">Facility free</div>
+                </div>
+                <div class="row villa house">
+                    <div class="col-12"><input type="text" th:field="*{facilityFree}" class="villa house form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn-success">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    let temp = document.getElementById("facilityType").value;
+    let collection = null;
+    let temp1 = document.getElementsByClassName("house");
+    let temp2 = document.getElementsByClassName("room");
+    let temp3 = document.getElementsByClassName("villa");
+    if (temp == 1) {
+        collection = document.getElementsByClassName("villa");
+    } else if (temp == 2) {
+        collection = document.getElementsByClassName("house");
+    } else {
+        collection = document.getElementsByClassName("room");
+    }
+    for (let i = 0; i < temp1.length; i++) {
+        temp1[i].style.display = "none";
+    }
+    for (let i = 0; i < temp2.length; i++) {
+        temp2[i].style.display = "block";
+
+    }
+    for (let i = 0; i < temp3.length; i++) {
+        temp3[i].style.display = "block";
+    }
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].style.display = "none";
+    }
+
+    function onchangeFacility(name) {
+        let collection = null;
+        let temp1 = document.getElementsByClassName("house");
+        let temp2 = document.getElementsByClassName("room");
+        let temp3 = document.getElementsByClassName("villa");
+        if (name == 1) {
+            collection = document.getElementsByClassName("villa");
+        } else if (name == 2) {
+            collection = document.getElementsByClassName("house");
+        } else {
+            collection = document.getElementsByClassName("room");
+        }
+        debugger
+        for (let i = 0; i < temp1.length; i++) {
+            temp1[i].style.display = "none";
+        }
+        for (let i = 0; i < temp2.length; i++) {
+            temp2[i].style.display = "block";
+
+        }
+        for (let i = 0; i < temp3.length; i++) {
+            temp3[i].style.display = "block";
+        }
+        for (let i = 0; i < collection.length; i++) {
+            collection[i].style.display = "none";
+        }
+    }
+</script>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    const temp = document.getElementById("change").valueOf();
+    alert(temp);
+    $(document).ready(function () {
+        $('#facilityType').change();
+    });
+</script>
+<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+</body>
+</html>

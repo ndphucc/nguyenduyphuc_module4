@@ -2,6 +2,8 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
+
 @Entity
 public class Employee {
     @Id
@@ -14,6 +16,39 @@ public class Employee {
     private String phoneNumber;
     private String email;
     private String address;
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
+    }
+
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public Set<Contract> getContract() {
+        return contract;
+    }
+
+    public void setContract(Set<Contract> contract) {
+        this.contract = contract;
+    }
+
     @ManyToOne
     @JoinColumn(name = "position_id",referencedColumnName = "id")
     private Position position;
@@ -23,6 +58,8 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "division_id",referencedColumnName = "id")
     private Division division;
+    @OneToMany(mappedBy = "employee")
+    private Set<Contract> contract;
     public Employee() {
     }
 

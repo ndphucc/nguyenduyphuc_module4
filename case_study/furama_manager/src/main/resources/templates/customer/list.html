@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+
+        <tr>
+            <th>Name</th>
+            <th>Customer type</th>
+            <th>Date of birth</th>
+            <th>Gender</th>
+            <th>Id card</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each="row:${list}">
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.customerType.name}"></td>
+            <td th:text="${row.dateOfBirth}"></td>
+            <td>
+                <span th:if="${row.gender==1}">nam</span>
+                <span th:if="${row.gender==0}">nữ</span>
+            </td>
+            <td th:text="${row.idCard}"></td>
+            <td th:text="${row.phoneNumber}"></td>
+            <td th:text="${row.email}"></td>
+            <td th:text="${row.address}"></td>
+        </tr>
+        <tr>
+            <td><a href="/customer/create">
+                <button>Create</button>
+            </a></td>
+        </tr>
+    </table>
+</div>
+
+<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+</body>
+</html>

@@ -15,27 +15,34 @@ public class BookController {
     private BookService bookService;
     @Autowired
     private BorrowBookService borrowBookService;
+
     @GetMapping("/list")
-    public String showList(Model model){
-        model.addAttribute("list",bookService.findAll());
+    public String showList(Model model) {
+        model.addAttribute("list", bookService.findAll());
         return "list";
     }
+
     @GetMapping("/borrow/{id}")
-    public String showBorrow(@PathVariable int id,Model model){
-        model.addAttribute("book",bookService.findById(id));
-        model.addAttribute("code",borrowBookService.randomCode());
+    public String showBorrow(@PathVariable int id, Model model) {
+        model.addAttribute("book", bookService.findById(id));
+        model.addAttribute("code", borrowBookService.randomCode());
         return "borrow";
     }
+
     @PostMapping("/borrow")
-    public String borrow(int code,int book){
-        BorrowBook borrowBook = new BorrowBook(code,bookService.findById(book));
+    public String borrow(int code, int book) {
+        BorrowBook borrowBook = new BorrowBook(code, bookService.findById(book));
         borrowBookService.save(borrowBook);
         bookService.borrow(borrowBook.getBook().getId());
         return "redirect:/list";
     }
+
     @GetMapping("/pay")
-    public String pay(@RequestParam int code){
-        borrowBookService.delete(code);
+    public String pay(@RequestParam int code) throws Exception {
+        boolean temp = borrowBookService.delete(code);
+        if (temp==false){
+            throw new Exception();
+        }
         BorrowBook borrowBook = borrowBookService.findById(code);
         bookService.pay(borrowBook.getBook().getId());
         return "redirect:/list";

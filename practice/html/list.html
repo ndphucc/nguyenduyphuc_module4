@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+        <table id="create">
+            <tr>
+                <td>Producer:</td>
+                <td><input type="text" id="producer" placeholder="producer"></td>
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td><input type="text" id="model" placeholder="model"></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="text" id="price" placeholder="price"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
+            </tr>
+        </table>
+</div>
+<table id="list"></table>
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                        <input type="text" id="id" value="">
+                        Producer:
+                        <input type="text" id="producerEdit" placeholder="producer" value=""><br>
+                        Model:
+                        <input type="text" id="modelEdit" placeholder="model" value="">
+                <br>
+                        <td>Price:</td>
+                        <td><input type="text" id="priceEdit" placeholder="price" value=""></td>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editSmartPhone()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).on('load',displayList);
+    function displayList(){
+        $("#list").init();
+        $.ajax({
+            url: "http://localhost:8080/smartphones/list",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                let tr = [];
+                $("#list").empty()
+                tr.push(`<tr><th>Id</th><th>Producer</th><th>Model</th><th>Price</th></tr>`)
+                for (let i = 0; i < data.length; i++) {
+                    tr.push("<tr>");
+                    tr.push("<td>" + data[i].id + "</td>");
+                    tr.push("<td>" + data[i].producer + "</td>");
+                    tr.push("<td>" + data[i].model + "</td>");
+                    tr.push("<td>" + data[i].price + "</td>");
+                    tr.push(`<td><button data-bs-toggle="editModal" data-bs-target="#exampleModal" onclick="findById(` + data[i].id + `)">Edit</button></td>
+                             <td><button>Delete</button></td>`)
+                    tr.push("</tr>");
+                }
+                $("#list").append((tr.join("")));
+            }
+        })
+    };
+</script>
+<script type="text/javascript">
+    function addNewSmartPhone() {
+        //lay du lieu
+        let producer = $('#producer').val();
+        let model = $('#model').val();
+        let price = $('#price').val();
+        let newSmartphone = {
+            producer: producer,
+            model: model,
+            price: price
+        };
+        // goi ajax
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            data: JSON.stringify(newSmartphone),
+            //tên API
+            url: "http://localhost:8080/smartphones",
+            //xử lý khi thành công
+            success: displayList
+
+        });
+        //chặn sự kiện mặc định của thẻ
+        event.preventDefault();
+    }
+
+    function findById(id) {
+        $("#editModal").modal('show');
+        $.ajax({
+            url: "http://localhost:8080/smartphones/"+id,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                debugger
+                document.getElementById("id").value = (data.id);
+                document.getElementById("producerEdit").value = (data.producer);
+                document.getElementById("modelEdit").value = (data.model);
+                document.getElementById("priceEdit").value = (data.price);
+            }
+        })
+    }
+    function editSmartPhone() {
+        $("#editModal").modal('hide');
+        //lay du lieu
+        let id = $("#id").val();
+        let producer = $('#producerEdit').val();
+        let model = $('#modelEdit').val();
+        let price = $('#priceEdit').val();
+        let newSmartphone = {
+            id: id,
+            producer: producer,
+            model: model,
+            price: price
+        }
+        // goi ajax
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            data: JSON.stringify(newSmartphone),
+            //tên API
+            url: "http://localhost:8080/smartphones",
+            //xử lý khi thành công
+            success: displayList
+
+        })
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

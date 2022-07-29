@@ -28,36 +28,27 @@
         </table>
 </div>
 <table id="list"></table>
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                        <input type="text" id="id" value="">
-                        Producer:
-                        <input type="text" id="producerEdit" placeholder="producer" value=""><br>
-                        Model:
-                        <input type="text" id="modelEdit" placeholder="model" value="">
-                <br>
-                        <td>Price:</td>
-                        <td><input type="text" id="priceEdit" placeholder="price" value=""></td>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="editSmartPhone()">Save changes</button>
-            </div>
-        </div>
-    </div>
+<div id="editBody">
+    <input type="hidden" id="id" value="">
+    Producer:
+    <input type="text" id="producerEdit" placeholder="producer" value=""><br>
+    Model:
+    <input type="text" id="modelEdit" placeholder="model" value="">
+    <br>
+    <td>Price:</td>
+    <td><input type="text" id="priceEdit" placeholder="price" value=""></td>
+    <br>
+    <button onclick="editSmartPhone()">Edit</button>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $(window).on('load',displayList);
+    $(window).on('load',function (){
+        displayList();
+        // $("#editBody").hidden;
+    });
+
     function displayList(){
         $("#list").init();
         $.ajax({
@@ -113,7 +104,7 @@
     }
 
     function findById(id) {
-        $("#editModal").modal('show');
+        // $("#editBody").show();
         $.ajax({
             url: "http://localhost:8080/smartphones/"+id,
             type: "GET",
@@ -128,7 +119,7 @@
         })
     }
     function editSmartPhone() {
-        $("#editModal").modal('hide');
+        // $("#editModal").modal('hide');
         //lay du lieu
         let id = $("#id").val();
         let producer = $('#producerEdit').val();

@@ -3,6 +3,7 @@ package com.example.dto;
 import com.example.model.Contract;
 import com.example.model.CustomerType;
 
+import java.util.Date;
 import java.util.Set;
 
 public class CustomerDto {

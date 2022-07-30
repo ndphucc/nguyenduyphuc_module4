@@ -25,14 +25,19 @@ public class PhoneController {
     }
     @GetMapping("/findbyid/{id}")
     public ResponseEntity<Phone> findById(@PathVariable long id){
-        if (iPhoneService.findById(id)==null){
-            return new ResponseEntity<>(iPhoneService.findById(id),HttpStatus.NOT_FOUND);
+        Phone phone = iPhoneService.findById(id);
+        if (phone==null){
+            return new ResponseEntity<>(phone,HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(iPhoneService.findById(id),HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(phone,HttpStatus.OK);
 
     }
-    @PostMapping("/remove")
-    public ResponseEntity<Phone> remove(@RequestBody Phone phone){
-        return new ResponseEntity<>(iPhoneService.remove(phone),HttpStatus.NO_CONTENT);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Phone> remove(@PathVariable long id){
+        Phone phone = iPhoneService.findById(id);
+        if (phone==null){
+            return new ResponseEntity<>(phone,HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(iPhoneService.remove(phone),HttpStatus.OK);
     }
 }

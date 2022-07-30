@@ -1,7 +1,5 @@
 package com.restful_blog.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,8 +11,8 @@ public class Blog {
     private String content;
 
     @ManyToOne
+   // @JsonManagedReference
     @JoinColumn(name="category_id",referencedColumnName = "id")
-//    @JsonManagedReference
     private Category category;
 
     public Blog() {
@@ -58,4 +56,6 @@ public class Blog {
     public void setContent(String content) {
         this.content = content;
     }
+
+
 }

@@ -37,6 +37,7 @@
             </div>
             <div class="modal-body">
                 <table>
+                    <input type="hidden" id="id">
                     <tr>
                         <th>Producer</th>
                         <td><input type="text" id="producer"></td>
@@ -82,19 +83,19 @@
                 $("#list").empty();
                 tr.push(`
                  <thead>
+                 <tr>
+        <td>
+            <button type="button" onclick="resetModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                create
+            </button>
+        </td>
+    </tr>
     <tr>
         <th>Producer</th>
         <th>Model</th>
         <th>Price</th>
         <th>Edit</th>
         <th>Delete</th>
-    </tr>
-    <tr>
-        <td>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-                create
-            </button>
-        </td>
     </tr>
     </thead>
                 `)
@@ -103,7 +104,8 @@
                     tr.push("<td>" + data[i].model + "</td>");
                     tr.push("<td>" + data[i].producer + "</td>");
                     tr.push("<td>" + data[i].price + "</td>");
-                    tr.push('<td><button onclick="addPhone($(data[i].id})">')
+                    tr.push(`<td><button onclick="edit(` + data[i].id + `)">Edit</button></td>
+                             <td><button onclick="remove(` + data[i].id + `)">Delete</button></td>`)
                     tr.push("</tr>");
                 }
                 $("#list").append((tr.join("")));
@@ -111,15 +113,34 @@
         })
     }
 
+    function resetModal() {
+        $("#id").val("");
+        $("#producer").val("");
+        $("#price").val("");
+        $("#model").val("");
+    }
+
     function addPhone() {
+        let id = $('#id').val();
         let producer = $('#producer').val();
         let model = $('#model').val();
         let price = $('#price').val();
-        let newSmartphone = {
-            producer: producer,
-            model: model,
-            price: price
-        };
+        let newSmartphone;
+        if (id == "") {
+            newSmartphone = {
+                producer: producer,
+                model: model,
+                price: price
+            };
+        } else {
+            newSmartphone = {
+                id: id,
+                producer: producer,
+                model: model,
+                price: price
+            };
+        }
+
         $.ajax({
             headers: {
                 'Accept': 'application/json',
@@ -128,23 +149,43 @@
             url: "http://localhost:8080/phone/save",
             type: "Post",
             data: JSON.stringify(newSmartphone),
-            success: displayList
+            success: function () {
+                $("#createModal").modal('hide');
+                displayList();
+            }
         })
     }
 
-    function edit(id){
+    function edit(id) {
+        $("#createModal").modal('show');
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            url: "http://localhost:8080/phone/findbyid"+id,
+            url: "http://localhost:8080/phone/findbyid/" + id,
             type: "get",
-            success: function (data){
-                 $("#product").value=data[0].producer;
-                 $("#model").value = data[0].model;
-                 $("#price").value = data[0].price;
+            success: function (data) {
+                debugger
+                $("#id").val(data.id);
+                $("#producer").val(data.producer);
+                $("#price").val(data.price);
+                $("#model").val(data.model);
+
             }
+        })
+    }
+
+    function remove(id) {
+        debugger
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "http://localhost:8080/phone/" + id,
+            type: "delete",
+            success: displayList()
         })
     }
 </script>

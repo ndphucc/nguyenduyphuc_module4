@@ -2,6 +2,7 @@ package com.restful_blog.controller;
 
 import com.restful_blog.model.Blog;
 import com.restful_blog.service.IBlogService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,25 +24,27 @@ public class BlogController {
         }
         return new ResponseEntity<>(blogList, HttpStatus.OK);
     }
-    @PostMapping("/save")
-    public ResponseEntity<Blog> save(@RequestBody Blog blog){
-        blogService.save(blog);
-        return new ResponseEntity<>(blog,HttpStatus.CREATED);
+
+    @PostMapping
+    public ResponseEntity<Blog> addBlog(@RequestBody Blog blog) {
+        Blog blog1 = new Blog();
+        BeanUtils.copyProperties(blog, blog1);
+        blogService.save(blog1);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping ("/edit")
-    public ResponseEntity edit(@RequestBody Blog blog) {
-        if (blog == null) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+    @PutMapping("/{id}")
+    public ResponseEntity<Blog> updateBlog(@PathVariable int id,
+                                           @RequestBody Blog blog) {
+        Blog currentBlog = blogService.findById(id);
+        if (currentBlog == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        blogService.update(blog.getId(),blog);
-        return new ResponseEntity(HttpStatus.OK);
-    }
+        currentBlog.setNameBlog(blog.getNameBlog());
+        currentBlog.setContent(blog.getContent());
+        currentBlog.setCategory(blog.getCategory());
 
-    @DeleteMapping ("/delete")
-    public ResponseEntity delete(@RequestParam int id) {
-        blogService.remove(id);
-        return new ResponseEntity(HttpStatus.OK);
+        blogService.save(currentBlog);
+        return new ResponseEntity<>(currentBlog, HttpStatus.OK);
     }
-
 }

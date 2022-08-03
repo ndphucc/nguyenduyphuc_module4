@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <style>
+        .row {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>
+                <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#createContract">Create</button>
+            </td>
+        </tr>
+        <tr style="background: black;color: white">
+            <th>Dịch vụ</th>
+            <th>Khách hàng</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th>Tiền đặt cọc</th>
+            <th>Tổng tiền</th>
+            <th colspan="2">Các dịch vụ đi kèm</th>
+        </tr>
+        <tr th:each="row:${list}">
+            <td th:text="${row.key.facility.name}"></td>
+            <td th:text="${row.key.customer.name}"></td>
+            <td th:text="${row.key.startDate}"></td>
+            <td th:text="${row.key.endDate}"></td>
+            <td th:text="${row.key.deposit}"></td>
+            <td th:text="${row.value}"></td>
+            <td>
+                <button class="btn-primary">+</button>
+            </td>
+            <td>
+                <button class="btn-primary" onclick="displayAttachFacilityList(this.value)" th:value="${row.key.id}">
+                    Danh sách dịch vụ đi kèm
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="attachFacilityModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Danh sách dịch vụ đi kèm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table id="attachFacilityList" class="table">
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="createContract" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm contract</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3">Ngày bắt đầu</div>
+                    <div class="col-9"><input type="date" class="form-control" id="startDate"></div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Ngày kết thúc</div>
+                    <div class="col-9"><input type="date" class="form-control" id="endDate"></div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Tiền gửi</div>
+                    <div class="col-9"><input type="number" class="form-control" id="deposit"></div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Tổng tiền</div>
+                    <div class="col-9"><input type="text" class="form-control" disabled id="total" value="10000000">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Khách hàng</div>
+                    <div class="col-9"><select name="" id="customer" class="form-select">
+                        <option th:each="row:${customerList}" th:text="${row.name}" th:value="${row.id}"></option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Nhân viên</div>
+                    <div class="col-9"><select name="" id="employee" class="form-select">
+                        <option th:each="row:${employeeList}" th:text="${row.name}" th:value="${row.id}"></option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Dịch vụ</div>
+                    <div class="col-9"><select name="" id="idFacility" class="form-select" onchange="resultTotal()">
+                        <option th:each="row:${facilityList}" th:text="${row.name}" th:value="${row.id}"></option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row" id="attachFacility">
+                    <div class="col-3">Dịch vụ đi kèm</div>
+                    <div class="col-9">
+                        <div class="row">
+                            <div class="col-1">
+                                <button type="button" class="btn-primary" onclick="displayAttachFacility()">+</button>
+                            </div>
+                        </div>
+                        <div class="row attachFacility">
+                            <div class="col-4">
+                                Tên
+                            </div>
+                            <div class="col-2">
+                                Giá
+                            </div>
+                            <div class="col-4">
+                                số lượng
+                            </div>
+                        </div>
+                        <div class="row attachFacility" th:each="row:${attachFacilityList}">
+                            <div class="col-3" th:text="${row.name}">
+                            </div>
+                            <div class="col-2" th:text="${row.cost}">
+                            </div>
+                            <div class="col-4">
+                                <input type="number" th:id="${row.id}" value="0" onchange="resultTotal()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="addContract()">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).on('load', function () {
+        $(".attachFacilityModal").hide();
+    })
+
+    function displayAttachFacilityList(id) {
+        $("#attachFacilityModal").modal('show');
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'content-Type': 'application/json'
+            },
+            url: 'http://localhost:8080/api/contract/' + id,
+            type: 'get',
+            success: function (data) {
+                $("#attachFacilityList").empty();
+                let tr = `<tr style="background:gray"><th>Tên dịch vụ</th><th>Giá</th><th>Số lượng</th></tr>`;
+                for (let i = 0; i < data.length; i++) {
+                    tr += `<tr>`;
+                    tr += `<td>` + data[i].attachFacility.name + `</td>`;
+                    tr += `<td>` + data[i].attachFacility.cost + `</td>`;
+                    tr += `<td>` + data[i].quantity + `</td>`;
+                    tr += '</tr>';
+                }
+                $("#attachFacilityList").append(tr);
+            }
+        })
+    }
+
+    function displayAttachFacility() {
+        $(".attachFacilityModal").toggle();
+    }
+
+    function resultTotal() {
+        let idFacility = document.getElementById("idFacility").value;
+        let map = {};
+        let attachFacility = $(".attachFacility input");
+        for (let i = 0; i < attachFacility.length; i++) {
+            let amount = document.getElementById(attachFacility[i].id).value;
+            if (amount != 0) {
+                map[attachFacility[i].id] = amount;
+            }
+        }
+        let totalDto = {
+            idFacility: idFacility,
+            map: map
+        };
+        console.log(map);
+        $.ajax({
+            contentType: "application/json",
+            url: 'http://localhost:8080/api/contract/total',
+            type: 'post',
+            dataType: 'json',
+            data: JSON.stringify(totalDto),
+            success: function (data) {
+                $("#total").val(data);
+            }
+        })
+    }
+
+    function addContract() {
+        let map = {};
+        let attachFacility = $(".attachFacility input");
+        for (let i = 0; i < attachFacility.length; i++) {
+            let amount = document.getElementById(attachFacility[i].id).value;
+            if (amount != 0) {
+                map[attachFacility[i].id] = amount;
+            }
+        }
+        let startDate = document.getElementById("startDate").value;
+        let endDate = document.getElementById("endDate").value;
+        let deposit = document.getElementById("deposit").value;
+        let customer = document.getElementById("customer").value;
+        let employee = document.getElementById("employee").value;
+        let facility = document.getElementById("idFacility").value;
+        let newContract = {
+            startDate: startDate,
+            endDate: endDate,
+            deposit: deposit,
+            customer: customer,
+            employee: employee,
+            facility: facility,
+            contractDetail: map
+        };
+        console.log(newContract)
+        debugger
+        $.ajax({
+
+            contentType: "application/json",
+            url: "http://localhost:8080/api/contract/create",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(newContract),
+            success: function () {
+                location.reload();
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

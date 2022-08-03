@@ -3,10 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/static/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <!--    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .vl {
+            border-top: 6px solid black;
+            width: 500px;
+            margin: 50px auto;
+            background-color: gray;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul li {
+            list-style: none;
+            color: black;
+        }
+
+        li:hover {
+            border-bottom: black 2px solid;
+        }
+
+        .bg-img {
+            width: 100%;
+            height: 700px;
+            background-image: url("https://www.marriott.com/content/dam/marriott-homepage/hero/DEFAULT_AEM_SupersizeHero_3240x1620.jpg.transform/mcom-hp-transform-2880x1620/image.jpg");
+            /*background-image: url("https://scontent.fsgn2-5.fna.fbcdn.net/v/t1.18169-9/17191221_747713802058268_753212561758381860_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=DX4otSdpiYkAX9COI6u&_nc_ht=scontent.fsgn2-5.fna&oh=00_AT96g-e4jrsekVFdGyyb8UQTk2rjHRErtNOyjFOnm324fA&oe=631062CE");*/
+            background-size: 100% 700px;
+        }
+
+        .sticky {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            /*padding: 5px;*/
+        }
+
+        .card-image {
+            background-image: url("https://cache.marriott.com//is/image/marriotts7prod/bonvoy-woman-in-creek-by-water-14699:Square");
+            background-color: #cccccc;
+            height: 400px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .card-text {
+            opacity: 0.5;
+            background: #FAFAFA;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            height: 70%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mr-1 {
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
+<div class="container-fluid position-relative">
+    <div class="row bg-dark text-white pt-3 pb-3">
+        <div class="col-2"></div>
+        <div class="col-2 justify-content-center d-flex h5"> Phúc </div>
+        <div class="col-2 justify-content-center d-flex h5"> Yêu</div>
+        <div class="col-2 justify-content-center d-flex h5"> Huyền</div>
+        <div class="col-2 justify-content-center d-flex h5"> Đẹp gái</div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row" style="background: #FAFAFA">
+        <div class="col-1"></div>
+        <div class="col-1">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" width="90px" height="105px" alt="">
+<!--            <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t1.18169-9/17191221_747713802058268_753212561758381860_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=DX4otSdpiYkAX9COI6u&_nc_ht=scontent.fsgn2-5.fna&oh=00_AT96g-e4jrsekVFdGyyb8UQTk2rjHRErtNOyjFOnm324fA&oe=631062CE" width="90px" height="105px" alt="">-->
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-12 justify-content-end d-flex">
+                    Nguyễn Duy Phúc
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <ul class="d-flex">
+                        <a href="">
+                            <li class="p-3 h5">Home</li>
+                        </a>
+                        <a href="/employee/list">
+                                <li class="p-3 h5"> Employee</li>
+                        </a><a href="/customer/list">
+                        <li class="p-3 h5">Customer</li>
+                    </a><a href="/facility/list">
+                        <li class="p-3 h5">Facility</li>
+                    </a><a href="/contract/list">
+                        <li class="p-3 h5">Contract</li>
+                    </a></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="">
+        <div class="col-12 bg-img">
+            <div class="m-5 p-3 row border rounded-3 bg-white sticky">
+                <div class="col-4" style="border-right:2px solid gray">
+                    <span>DESTINATION</span> <br>
+                    <span style="color: gray">Where can we take you ?</span>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="m-2 bg-dark text-white d-flex justify-content-center border rounded-pill">Find hotels
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin:40px -20px 0px 0px;background: #FAFAFA">
+        <div class="row h3" style="padding-bottom: 20px">Popular Offers</div>
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//is/image/marriotts7prod/bonvoy-poolside-sunset-42762:Square')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//marriottassets/marriott/Stock/stock-brand-278669-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//content/dam/marriott-renditions/MD/md-lifestyle-0207-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//marriottassets/marriott/Stock/stock-sunset-infinity-pool-1067314-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//is/image/marriotts7prod/bonvoy-family-on-rooftop-32966:Square')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//is/image/marriotts7prod/bonvoy-woman-in-creek-by-water-14699:Square')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//marriottassets/marriott/Stock/stock-brand-278712-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//marriottassets/marriott/Stock/stock-drive-666575-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-image"
+                                         style="background-image: url('https://cache.marriott.com//marriottassets/marriott/Stock/stock-sunset-infinity-pool-1067314-sq.jpg')">
+                                        <div class="card-text m-3 p-5">
+                                            <div class="row d-flex justify-content-center align-content-center pb-5">
+                                                VALID THROUGH THG 11 06,2022
+                                            </div>
+                                            <div class="row h5 d-flex justify-content-center">
+                                                Extended Escapes-Save on 5+ nights
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #e2dede">
+        <div class="vl"></div>
+    </div>
+    <div class="row">
+        <div class="col-7 card-image"
+             style="background-image: url('https://www.marriott.com/content/dam/marriott-homepage/destinations/hawaii2.png.transform/mcom-hp-transform-2584x1292/image.png');height: 600px">
+            <div class="position-absolute" style="color: white;width: 350px;height: 140px;top: 80px;left: 50px">
+                <h2>Hawail</h2>
+                <p>Ready for a getaway? The Big Island has it all: sun-warmed beaches, tropical reefs, rainforests and
+                    more.</p>
+            </div>
+        </div>
+        <div class="col-5" style="padding: 35px">
+            <div class="row">
+                <div class="col-5">
+                    <img src="https://www.marriott.com/content/dam/marriott-homepage/destinations/emea/png-images/emea_destinations_Paris.png.transform/mcom-hp-transform-380x570/image.png"
+                         width="180px" height="280px" style="border-radius: 15px ">
+                </div>
+                <div class="col-7 d-flex align-items-center">
+                    <div>
+                        <div>CITY OF LIGHT</div>
+                        <h3>Paris</h3>
+                        <div>Explore Hotel</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7 d-flex align-items-center justify-content-end">
+                    <div>
+                        <div>THE SECOND CITY</div>
+                        <h3>Chicago</h3>
+                        <div>Explore Hotel</div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <img src="https://www.marriott.com/content/dam/marriott-homepage/destinations/chijw-attraction-beach-9561-hor-clsc.jpg.transform/mcom-hp-transform-380x570/image.jpg"
+                         width="180px" height="280px" style="border-radius: 15px ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background: black;color: white;height: 50px">
+        @Codegym
+    </div>
+</div>
 
-<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<!--<script src="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>-->
 </body>
 </html>

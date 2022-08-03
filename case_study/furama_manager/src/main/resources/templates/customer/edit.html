@@ -12,8 +12,9 @@
 </head>
 <body>
 <div class="container">
-    <form action="/customer/edit" method="post" th:object="${customerDto}">
+    <form action="/customer/create" method="post" th:object="${customerDto}">
         <div class="row">
+            <input type="hidden" th:field="*{id}">
             <div class="col-12">Name</div>
         </div>
         <div class="row">

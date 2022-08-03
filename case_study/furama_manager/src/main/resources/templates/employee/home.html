@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3>Employee List</h3>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
+    <table class="table" id="tableList">
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Id card</th>
+            <th>salary</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Position</th>
+            <th>EducationDegree</th>
+            <th>Division</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="row:${list}">
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.dateOfBirth}"></td>
+            <td th:text="${row.idCard}"></td>
+            <td th:text="${row.salary}"></td>
+            <td th:text="${row.phoneNumber}"></td>
+            <td th:text="${row.email}"></td>
+            <td th:text="${row.address}"></td>
+            <td th:text="${row.position.name}"></td>
+            <td th:text="${row.educationDegree.name}"></td>
+            <td th:text="${row.division.name}"></td>
+            <td>
+                <button>Edit</button>
+            </td>
+            <td>
+                <button>Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Modal create-->
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <input hidden  id="idEmployeeDto">
+                    <div class="row">
+                        <div class="col-12">Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control" id="nameEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Address</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text"  class="form-control" id="addressEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Date of birth</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="date"  class="form-control"
+                                   id="dateOfBirthEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Email</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text"  class="form-control" id="emailEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Id card</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text"  class="form-control" id="idCardEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Phone number</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="text" class="form-control"
+                                   id="phoneNumberEmployeeDto">
+                        </div>
+                        <div class="col-4">
+                            <span style="color: red" id="phoneNumber"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Salary</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text"  class="form-control" id="salaryEmployeeDto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Position</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <select  class="form-select" id="positionEmployeeDto">
+                                <option th:each="row:${positionList}" th:value="${row.id}"
+                                        th:text="${row.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Education degree</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <select  class="form-select" id="educationDegreeEmployeeDto">
+                                <option th:each="row:${educationDegreeList}" th:value="${row.id}"
+                                        th:text="${row.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">Division</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <select  class="form-select" id="divisionEmployeeDto">
+                                <option th:each="row:${divisionList}" th:value="${row.id}"
+                                        th:text="${row.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="create()">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    function create() {
+        debugger
+        let id = document.getElementById("idEmployeeDto").value;
+        let name = document.getElementById("nameEmployeeDto").value;
+        let dateOfBirth = document.getElementById("dateOfBirthEmployeeDto").value;
+        let idCard = document.getElementById("idCardEmployeeDto").value;
+        let salary = document.getElementById("salaryEmployeeDto").value;
+        let phoneNumber = document.getElementById("phoneNumberEmployeeDto").value;
+        let email = document.getElementById("emailEmployeeDto").value;
+        let positionId = document.getElementById("positionEmployeeDto").value;
+        let educationDegreeId = document.getElementById("educationDegreeEmployeeDto").value;
+        let divisionId = document.getElementById("divisionEmployeeDto").value;
+        let address = document.getElementById("addressEmployeeDto").value;
+        let employeeDto = {
+            id: id,
+            name: name,
+            dateOfBirth: dateOfBirth,
+            idCard: idCard,
+            salary: salary,
+            phoneNumber: phoneNumber,
+            email: email,
+            position: {
+                id: positionId
+            },
+            educationDegree: {
+                id: educationDegreeId
+            },
+            division: {
+                id: divisionId
+            },
+            address: address
+        };
+        $.ajax({
+            contentType: "application/json",
+            type: "post",
+            dataType: "json",
+            url: "http://localhost:8080/api/employee/create",
+            data: JSON.stringify(employeeDto),
+            success: location.reload(),
+            error : function (event){
+                console.log(event)
+                debugger
+                document.getElementById("phoneNumber").innerText = event.responseJSON.phoneNumber;
+            }
+        })
+    }
+</script>
+</html>

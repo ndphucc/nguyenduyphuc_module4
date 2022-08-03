@@ -1,14 +1,19 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
+
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Column(columnDefinition = "date")
     private String dateOfBirth;
     private int gender;
     private String idCard;
@@ -27,6 +32,7 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id",referencedColumnName = "id")
+    @JsonIgnore
     private CustomerType customerType;
     @OneToMany(mappedBy = "customer")
     private Set<Contract> contracts;
@@ -47,16 +53,6 @@ public class Customer {
         this.contracts = contracts;
     }
 
-    public Customer(int id, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-    }
 
     public Customer() {
     }

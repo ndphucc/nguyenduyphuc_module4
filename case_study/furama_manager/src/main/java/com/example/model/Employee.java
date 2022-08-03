@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -10,12 +12,23 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private Date dateOfBirth;
+    @Column(columnDefinition = "date")
+    private String dateOfBirth;
     private String idCard;
     private double salary;
     private String phoneNumber;
     private String email;
     private String address;
+
+    private boolean deleteStatus;
+
+    public boolean isDeleteStatus() {
+        return deleteStatus;
+    }
+
+    public void setDeleteStatus(boolean deleteStatus) {
+        this.deleteStatus = deleteStatus;
+    }
 
     public Position getPosition() {
         return position;
@@ -51,28 +64,21 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "position_id",referencedColumnName = "id")
+    @JsonIgnore
     private Position position;
     @ManyToOne
     @JoinColumn(name = "education_degree_id",referencedColumnName = "id")
+    @JsonIgnore
     private EducationDegree educationDegree;
     @ManyToOne
     @JoinColumn(name = "division_id",referencedColumnName = "id")
+    @JsonIgnore
     private Division division;
     @OneToMany(mappedBy = "employee")
     private Set<Contract> contract;
     public Employee() {
     }
 
-    public Employee(int id, String name, Date dateOfBirth, String idCard, double salary, String phoneNumber, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-    }
 
     public int getId() {
         return id;
@@ -90,11 +96,11 @@ public class Employee {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

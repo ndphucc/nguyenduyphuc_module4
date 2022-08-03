@@ -20,6 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerTypeRepository customerTypeRepository;
 
+
     @Override
     public Page<Customer> findAll(Pageable pageable) {
         return customerRepository.findAll(pageable);
@@ -36,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer findById(int id) {
-        return customerRepository.getById(id);
+        return customerRepository.findById(id).get();
     }
 
     @Override

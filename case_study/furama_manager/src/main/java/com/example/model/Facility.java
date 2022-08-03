@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.implementation.bind.annotation.Default;
 
 import javax.persistence.*;
@@ -22,9 +23,11 @@ public class Facility {
     private boolean deleteStatus;
     @ManyToOne
     @JoinColumn(name = "rent_type_id",referencedColumnName = "id")
+    @JsonIgnore
     private RentType rentType;
     @ManyToOne
     @JoinColumn(name = "facility_type_id",referencedColumnName = "id")
+    @JsonIgnore
     private FacilityType facilityType;
 
     public RentType getRentType() {

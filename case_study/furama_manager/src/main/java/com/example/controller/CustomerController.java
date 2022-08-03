@@ -9,10 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("customer")
@@ -37,5 +34,11 @@ public class CustomerController {
         BeanUtils.copyProperties(customerDto,customer);
         customerService.save(customer);
         return "redirect:/customer/list";
+    }
+    @GetMapping("/edit/{id}")
+    public String showEdit(@PathVariable int id,Model model){
+        model.addAttribute("customerDto",customerService.findById(id));
+        model.addAttribute("customerTypeList",customerService.findCustomerType());
+        return "customer/edit";
     }
 }
